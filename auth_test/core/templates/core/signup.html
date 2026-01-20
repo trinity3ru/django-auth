@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+    <!-- Встроенная форма UserCreationForm уже содержит поля логина и паролей -->
+    <h1>Регистрация</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Создать аккаунт</button>
+    </form>
+{% endblock %}

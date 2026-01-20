@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Вход{% endblock %}
+
+{% block content %}
+    <!-- Используем стандартный LoginView и шаблон для сохранения совместимости -->
+    <h1>Вход</h1>
+    {% if form.non_field_errors %}
+        <div>
+            {{ form.non_field_errors }}
+        </div>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}">
+        {% endif %}
+        <button type="submit">Войти</button>
+    </form>
+{% endblock %}

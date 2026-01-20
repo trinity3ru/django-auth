@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block content %}
+    <!-- Профиль сохраняет простоту и показывает только основную информацию -->
+    <h1>Профиль пользователя</h1>
+    <p>Имя пользователя: <strong>{{ request.user.username }}</strong></p>
+    <p>Телефон: <strong>{{ request.user.phone|default:"не указан" }}</strong></p>
+    <p>Email: <strong>{{ request.user.email|default:"не указан" }}</strong></p>
+    <p>Дата регистрации: <strong>{{ request.user.date_joined|date:"d.m.Y H:i" }}</strong></p>
+{% endblock %}
